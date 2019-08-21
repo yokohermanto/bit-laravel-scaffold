@@ -1,3 +1,3 @@
-# Laravel Scaffold Core UI
+# Laravel Scaffold - Core UI
 
 ## Coming Soon
