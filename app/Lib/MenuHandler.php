@@ -55,7 +55,7 @@ class MenuHandler
         return $this->buildNavArray($this->menu);
     }
 
-    public function buildNavArray($arr)
+    private function buildNavArray($arr)
     {
         foreach ($arr as $index => $menu) {
             $link_sub = isset($menu['sub']) && is_array($menu['sub']) ? true : false;
@@ -70,14 +70,14 @@ class MenuHandler
                     }
                 } else {
                     if ($link_sub) {
-                        $this->nav .= "<li class='nav-item nav-dropdown'>";
-                        $this->nav .= "<a class='nav-link nav-dropdown-toggle' href='#'>
-                                        <i class='nav-icon {$menu["ikon"]}'></i> {$menu["nama"]}
-                                    </a>";
-                        $this->nav .= "<ul class='nav-dropdown-items'>";
+//                        $this->nav .= "<li class='nav-item nav-dropdown'>";
+//                        $this->nav .= "<a class='nav-link nav-dropdown-toggle' href='#'>
+//                                        <i class='nav-icon {$menu["ikon"]}'></i> {$menu["nama"]}
+//                                    </a>";
+//                        $this->nav .= "<ul class='nav-dropdown-items'>";
+                        $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
                         $this->buildNavArray($menu["sub"]);
-                        $this->nav .= "</ul>";
-                        $this->nav .= "</li>";
+                        $this->nav .= $this->buildNavSubEnd();
                     } else {
                         $this->nav .= $this->buildNavItem($menu["url"] , $menu["ikon"] , $menu["nama"]);
                     }
@@ -101,8 +101,9 @@ class MenuHandler
 //                            $this->nav .= "<ul class='nav-dropdown-items'>";
                             $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
                             $this->buildNavArray($menu["sub"]);
-                            $this->nav .= "</ul>";
-                            $this->nav .= "</li>";
+//                            $this->nav .= "</ul>";
+//                            $this->nav .= "</li>";
+                            $this->nav .= $this->buildNavSubEnd();
                         } else {
                             $this->nav .= $this->buildNavItem($menu["url"] , $menu["ikon"] , $menu["nama"]);
                         }
@@ -112,7 +113,7 @@ class MenuHandler
         }
     }
 
-    public function buildNavTitle($name)
+    private function buildNavTitle($name)
     {
         return "
                 <li class='nav-title'>
@@ -120,7 +121,7 @@ class MenuHandler
                 </li>";
     }
 
-    public function buildNavItem($url , $icon , $name)
+    private function buildNavItem($url , $icon , $name)
     {
         return "
             <li class='nav-item'>
@@ -135,15 +136,15 @@ class MenuHandler
         return $this->nav;
     }
 
-    public function buildNavSubBegin($name , $icon)
+    private function buildNavSubBegin($name , $icon)
     {
         return "<li class='nav-item nav-dropdown'>
                     <a class='nav-link nav-dropdown-toggle' href='#'>
-                    <i class='nav-icon {$name}'></i> {$icon}
+                    <i class='nav-icon {$icon}'></i> {$name}
                 </a> <ul class='nav-dropdown-items'>";
     }
 
-    public function buildNavSubEnd()
+    private function buildNavSubEnd()
     {
         return "</ul></li>";
     }
