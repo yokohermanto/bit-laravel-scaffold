@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/konfigurasibackup",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\KonfigurasiBackup\\Providers\\KonfigurasiBackupServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\KonfigurasiBackup\\": ""
+        }
+    }
+}

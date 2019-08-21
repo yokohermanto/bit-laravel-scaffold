@@ -1,0 +1,14 @@
+{
+    "name": "KonfigurasiBackup",
+    "alias": "konfigurasibackup",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\KonfigurasiBackup\\Providers\\KonfigurasiBackupServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

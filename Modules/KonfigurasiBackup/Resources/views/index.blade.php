@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{!! config('$LOWER_NAME$.name') !!}</div>
+                <div class="card-header">{!! config('konfigurasibackup.name') !!}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -28,10 +28,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('script')
-    <script>
-
-    </script>
 @endsection

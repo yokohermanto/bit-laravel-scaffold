@@ -19,20 +19,20 @@ class MenuHandler
     public function __construct()
     {
 //        dd();
-        $currentMenu = json_decode(session()->get("menu"), true);
-        if($currentMenu != null){
-            $this->menu = $currentMenu;
-        } else {
-            $data = DB::table("menu as m")
-                ->select("m.*" , "p.nama as hak_akses")
-                ->leftJoin("permission as p" , "m.hak_akses_id" , "p.id")
-                ->orderBy("m.id" , "ASC");
+//        $currentMenu = json_decode(session()->get("menu"), true);
+//        if($currentMenu != null){
+//            $this->menu = $currentMenu;
+//        } else {
+        $data = DB::table("menu as m")
+            ->select("m.*" , "p.nama as hak_akses")
+            ->leftJoin("permission as p" , "m.hak_akses_id" , "p.id")
+            ->orderBy("m.id" , "ASC");
 
-            $this->menu = $this->nested($data->get()->toArray());
-            session([
-                "menu" => json_encode($this->menu)
-            ]);
-        }
+        $this->menu = $this->nested($data->get()->toArray());
+//        session([
+//            "menu" => json_encode($this->menu)
+//        ]);
+//        }
     }
 
     private function nested($tree , $root = null)
@@ -61,7 +61,10 @@ class MenuHandler
 
     public function buildNav()
     {
-        return $this->buildNavArray($this->menu);
+        $this->buildNavArray($this->menu);
+        session([
+            "menu_html" => $this->nav
+        ]);
     }
 
     private function buildNavArray($arr)
@@ -79,7 +82,7 @@ class MenuHandler
                     }
                 } else {
                     if ($link_sub) {
-                        $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
+                        $this->nav .= $this->buildNavSubBegin($menu["nama"] , $menu["ikon"]);
                         $this->buildNavArray($menu["sub"]);
                         $this->nav .= $this->buildNavSubEnd();
                     } else {
@@ -98,7 +101,7 @@ class MenuHandler
                         }
                     } else {
                         if ($link_sub) {
-                            $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
+                            $this->nav .= $this->buildNavSubBegin($menu["nama"] , $menu["ikon"]);
                             $this->buildNavArray($menu["sub"]);
                             $this->nav .= $this->buildNavSubEnd();
                         } else {
@@ -128,11 +131,6 @@ class MenuHandler
             </li>";
     }
 
-    public function getNav()
-    {
-        return $this->nav;
-    }
-
     private function buildNavSubBegin($name , $icon)
     {
         return "<li class='nav-item nav-dropdown'>
@@ -144,6 +142,11 @@ class MenuHandler
     private function buildNavSubEnd()
     {
         return "</ul></li>";
+    }
+
+    public function getNav()
+    {
+        return $this->nav;
     }
 
 }

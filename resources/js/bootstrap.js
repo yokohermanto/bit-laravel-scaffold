@@ -12,7 +12,9 @@ try {
 
     require('bootstrap');
     require('@coreui/coreui');
-} catch (e) {}
+} catch (e) {
+    console.log(e);
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

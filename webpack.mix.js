@@ -11,6 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+mix
+  .autoload({
+    jquery: ['$', 'window.jQuery']
+  })
+  .js('resources/js/app.js', 'public/js')
+  .sass('resources/sass/app.scss', 'public/css')
+  .styles([
+    'public/css/plain/style.css'
+  ], 'public/css/style.css')
   .browserSync('127.0.0.1:8000');
