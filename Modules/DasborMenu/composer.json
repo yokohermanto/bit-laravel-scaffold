@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/dasbormenu",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\DasborMenu\\Providers\\DasborMenuServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DasborMenu\\": ""
+        }
+    }
+}

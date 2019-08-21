@@ -1,0 +1,14 @@
+{
+    "name": "DasborMenu",
+    "alias": "dasbormenu",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\DasborMenu\\Providers\\DasborMenuServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
