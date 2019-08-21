@@ -18,12 +18,21 @@ class MenuHandler
 
     public function __construct()
     {
-        $data = DB::table("menu as m")
-            ->select("m.*" , "p.nama as hak_akses")
-            ->leftJoin("permission as p" , "m.hak_akses_id" , "p.id")
-            ->orderBy("m.id" , "ASC");
+//        dd();
+        $currentMenu = json_decode(session()->get("menu"), true);
+        if($currentMenu != null){
+            $this->menu = $currentMenu;
+        } else {
+            $data = DB::table("menu as m")
+                ->select("m.*" , "p.nama as hak_akses")
+                ->leftJoin("permission as p" , "m.hak_akses_id" , "p.id")
+                ->orderBy("m.id" , "ASC");
 
-        $this->menu = $this->nested($data->get()->toArray());
+            $this->menu = $this->nested($data->get()->toArray());
+            session([
+                "menu" => json_encode($this->menu)
+            ]);
+        }
     }
 
     private function nested($tree , $root = null)

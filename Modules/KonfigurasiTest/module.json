@@ -1,0 +1,14 @@
+{
+    "name": "KonfigurasiTest",
+    "alias": "konfigurasitest",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\KonfigurasiTest\\Providers\\KonfigurasiTestServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
