@@ -34,25 +34,26 @@ class EntrustSetupTables extends Migration
         });
 
         // Create table for storing permissions
-        Schema::create('hak_akses', function (Blueprint $table) {
+        Schema::create('permission', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama')->unique();
+            $table->string('modul')->nullable();
             $table->string('nama_tampilan')->nullable();
-            $table->string('description')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
 
         // Create table for associating permissions to roles (Many-to-Many)
-        Schema::create('hak_akses_role', function (Blueprint $table) {
-            $table->integer('hak_akses_id')->unsigned();
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->integer('permission_id')->unsigned();
             $table->integer('role_id')->unsigned();
 
-            $table->foreign('hak_akses_id')->references('id')->on('hak_akses')
+            $table->foreign('permission_id')->references('id')->on('permission')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('role')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['hak_akses_id', 'role_id']);
+            $table->primary(['permission_id', 'role_id']);
         });
     }
 
@@ -63,8 +64,8 @@ class EntrustSetupTables extends Migration
      */
     public function down()
     {
-        Schema::drop('hak_akses_role');
-        Schema::drop('hak_akses');
+        Schema::drop('permission_role');
+        Schema::drop('permission');
         Schema::drop('role_user');
         Schema::drop('role');
     }

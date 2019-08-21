@@ -21,10 +21,6 @@
                         <small class="text-muted">{{ Auth::user()->email }}</small>
                     </a>
                     <div class="divider"></div>
-                    <a class="dropdown-item" href="/password">
-                        <i class="fas fa-key"></i> Kata Sandi
-                    </a>
-                    <div class="divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i> Keluar
                     </a>

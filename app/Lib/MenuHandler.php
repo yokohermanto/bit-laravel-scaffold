@@ -9,7 +9,7 @@
 namespace App\Lib;
 
 
-use App\Models\Menu;
+use App\Menu;
 
 ini_set('xdebug.max_nesting_level' , 8088);
 

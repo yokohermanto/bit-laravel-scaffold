@@ -34,7 +34,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="app header-fixed sidebar-fixed sidebar-lg-show">
+<body class="app header-fixed sidebar-fixed sidebar-lg-show aside-menu-fixed">
 @include('layouts.header')
 <div id="app">
     <div class="app-body">
