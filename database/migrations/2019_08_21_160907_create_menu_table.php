@@ -17,7 +17,7 @@ class CreateMenuTable extends Migration
             $table->bigIncrements('id');
             $table->string("nama");
             $table->unsignedBigInteger("p_id")->nullable();
-            $table->unsignedBigInteger("hak_akses_id")->nullable();
+            $table->integer("hak_akses_id")->unsigned()->nullable();
             $table->string("ikon")->nullable();
             $table->string("url")->nullable();
             $table->string("segment")->nullable();
@@ -25,6 +25,9 @@ class CreateMenuTable extends Migration
             $table->string("urutan")->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('hak_akses_id')->references('id')->on('permission')
+                ->onUpdate('cascade')->onDelete('set null');
         });
     }
 

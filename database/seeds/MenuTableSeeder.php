@@ -34,7 +34,7 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["pengguna"] = new \App\Menu();
         $menu["master_data"]["pengguna"]->nama = "Pengguna";
         $menu["master_data"]["pengguna"]->p_id = $menu["master_data"]->id;
-        $menu["master_data"]["pengguna"]->hak_akses_id = null;
+        $menu["master_data"]["pengguna"]->hak_akses_id = \App\Permission::where("nama", "manajemen-pengguna")->first()->id;
         $menu["master_data"]["pengguna"]->ikon = "icon-user";
         $menu["master_data"]["pengguna"]->url = "master-data/pengguna";
         $menu["master_data"]["pengguna"]->tipe = "menu";
@@ -44,7 +44,7 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["menu"] = new \App\Menu();
         $menu["master_data"]["menu"]->nama = "Menu";
         $menu["master_data"]["menu"]->p_id = $menu["master_data"]->id;;
-        $menu["master_data"]["menu"]->hak_akses_id = null;
+        $menu["master_data"]["menu"]->hak_akses_id = \App\Permission::where("nama", "manajemen-menu")->first()->id;
         $menu["master_data"]["menu"]->ikon = "icon-list";
         $menu["master_data"]["menu"]->url = "master-data/menu";
         $menu["master_data"]["menu"]->tipe = "menu";
@@ -54,7 +54,7 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["role"] = new \App\Menu();
         $menu["master_data"]["role"]->nama = "Role";
         $menu["master_data"]["role"]->p_id = $menu["master_data"]->id;;
-        $menu["master_data"]["role"]->hak_akses_id = null;
+        $menu["master_data"]["role"]->hak_akses_id = \App\Permission::where("nama", "manajemen-role")->first()->id;
         $menu["master_data"]["role"]->ikon = "icon-people";
         $menu["master_data"]["role"]->url = "master-data/role";
         $menu["master_data"]["role"]->tipe = "menu";
