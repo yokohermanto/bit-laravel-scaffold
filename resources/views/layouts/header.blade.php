@@ -20,9 +20,6 @@
                         {{ Auth::user()->nama }}<br>
                         <small class="text-muted">{{ Auth::user()->email }}</small>
                     </a>
-                    <a class="dropdown-item" href="/profile">
-                        <i class="fas fa-user"></i> Profil
-                    </a>
                     <div class="divider"></div>
                     <a class="dropdown-item" href="/password">
                         <i class="fas fa-key"></i> Kata Sandi

@@ -17,7 +17,7 @@ class CreateMenuTable extends Migration
             $table->bigIncrements('id');
             $table->string("nama");
             $table->unsignedBigInteger("p_id")->nullable();
-            $table->unsignedBigInteger("hak_akses_id");
+            $table->unsignedBigInteger("hak_akses_id")->nullable();
             $table->string("ikon")->nullable();
             $table->string("url")->nullable();
             $table->string("segment")->nullable();
