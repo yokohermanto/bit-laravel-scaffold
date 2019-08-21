@@ -1,0 +1,14 @@
+{
+    "name": "MasterDataPengguna",
+    "alias": "masterdatapengguna",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\MasterDataPengguna\\Providers\\MasterDataPenggunaServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

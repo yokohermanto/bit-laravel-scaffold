@@ -1,0 +1,14 @@
+{
+    "name": "MasterDataMenu",
+    "alias": "masterdatamenu",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\MasterDataMenu\\Providers\\MasterDataMenuServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

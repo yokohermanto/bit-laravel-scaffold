@@ -1,0 +1,14 @@
+{
+    "name": "MasterDataRole",
+    "alias": "masterdatarole",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\MasterDataRole\\Providers\\MasterDataRoleServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

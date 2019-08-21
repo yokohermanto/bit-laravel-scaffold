@@ -70,11 +70,6 @@ class MenuHandler
                     }
                 } else {
                     if ($link_sub) {
-//                        $this->nav .= "<li class='nav-item nav-dropdown'>";
-//                        $this->nav .= "<a class='nav-link nav-dropdown-toggle' href='#'>
-//                                        <i class='nav-icon {$menu["ikon"]}'></i> {$menu["nama"]}
-//                                    </a>";
-//                        $this->nav .= "<ul class='nav-dropdown-items'>";
                         $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
                         $this->buildNavArray($menu["sub"]);
                         $this->nav .= $this->buildNavSubEnd();
@@ -94,15 +89,8 @@ class MenuHandler
                         }
                     } else {
                         if ($link_sub) {
-//                            $this->nav .= "<li class='nav-item nav-dropdown'>";
-//                            $this->nav .= "<a class='nav-link nav-dropdown-toggle' href='#'>
-//                                        <i class='nav-icon {$menu["ikon"]}'></i> * {$menu["nama"]}
-//                                    </a>";
-//                            $this->nav .= "<ul class='nav-dropdown-items'>";
                             $this->nav .= $this->buildNavSubBegin($menu["nama"], $menu["ikon"]);
                             $this->buildNavArray($menu["sub"]);
-//                            $this->nav .= "</ul>";
-//                            $this->nav .= "</li>";
                             $this->nav .= $this->buildNavSubEnd();
                         } else {
                             $this->nav .= $this->buildNavItem($menu["url"] , $menu["ikon"] , $menu["nama"]);
