@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\KonfigurasiTest\Providers;
+namespace Modules\KonfigurasiExample\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class KonfigurasiTestServiceProvider extends ServiceProvider
+class KonfigurasiExampleServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -39,10 +39,10 @@ class KonfigurasiTestServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('konfigurasitest.php'),
+            __DIR__.'/../Config/config.php' => config_path('konfigurasiexample.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'konfigurasitest'
+            __DIR__.'/../Config/config.php', 'konfigurasiexample'
         );
     }
 
@@ -53,7 +53,7 @@ class KonfigurasiTestServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/konfigurasitest');
+        $viewPath = resource_path('views/modules/konfigurasiexample');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -62,8 +62,8 @@ class KonfigurasiTestServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/konfigurasitest';
-        }, \Config::get('view.paths')), [$sourcePath]), 'konfigurasitest');
+            return $path . '/modules/konfigurasiexample';
+        }, \Config::get('view.paths')), [$sourcePath]), 'konfigurasiexample');
     }
 
     /**
@@ -73,12 +73,12 @@ class KonfigurasiTestServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/konfigurasitest');
+        $langPath = resource_path('lang/modules/konfigurasiexample');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'konfigurasitest');
+            $this->loadTranslationsFrom($langPath, 'konfigurasiexample');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'konfigurasitest');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'konfigurasiexample');
         }
     }
 

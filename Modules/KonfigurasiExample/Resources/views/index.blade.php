@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{!! config('konfigurasitest.name') !!}</div>
+                <div class="card-header">{!! config('konfigurasiexample.name') !!}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -28,4 +28,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+
+    </script>
 @endsection

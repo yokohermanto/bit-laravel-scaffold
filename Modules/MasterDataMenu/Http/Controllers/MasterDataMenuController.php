@@ -2,6 +2,7 @@
 
 namespace Modules\MasterDataMenu\Http\Controllers;
 
+use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -14,66 +15,36 @@ class MasterDataMenuController extends Controller
      */
     public function index()
     {
-        return view('masterdatamenu::index');
+        return view('masterdatamenu::menu_index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
+    public function get(Request $request)
     {
-        return view('masterdatamenu::create');
+        $menu = Menu::select("*")->get();
+        return $this->nested($menu);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
+    private function nested($tree, $root = null)
     {
-        //
+        $return = array();
+        foreach ($tree as $child => $parent) {
+            if ($parent['p_id'] == $root) {
+                unset($tree[$child]);
+                $return[] = [
+                    'id' => $parent['id'] ,
+                    'nama' => $parent['nama'] ,
+                    'p_id' => $parent['p_id'] ,
+                    'hak_akses' => $parent["hak_akses"] ,
+                    'ikon' => $parent['ikon'] ,
+                    'url' => $parent['url'] ,
+                    'segment' => $parent['segment'] ,
+                    'tipe' => $parent['tipe'] ,
+                    'urutan' => $parent['urutan'] ,
+                    'children' => $this->nested($tree , $parent['id'])
+                ];
+            }
+        }
+        return empty($return) ? null : $return;
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('masterdatamenu::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('masterdatamenu::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

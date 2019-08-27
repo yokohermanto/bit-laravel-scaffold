@@ -17,4 +17,7 @@ mix
   .styles([
     'public/css/plain/style.css'
   ], 'public/css/style.css')
+  .scripts([
+    'public/css/plain/style.js'
+  ], 'public/js/plugins.js')
   .browserSync('127.0.0.1:8000');

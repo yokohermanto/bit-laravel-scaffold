@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\KonfigurasiTest\Database\Seeders;
+namespace Modules\KonfigurasiExample\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class KonfigurasiTestDatabaseSeeder extends Seeder
+class KonfigurasiExampleDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.

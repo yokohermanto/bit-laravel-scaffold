@@ -11,7 +11,6 @@
 |
 */
 
-Route::prefix('konfigurasi/test')->group(function() {
-    Route::get('/', 'KonfigurasiTestController@index');
-    Route::get('/form-submit', 'KonfigurasiTestController@formSubmit');
+Route::prefix('konfigurasi/example')->group(function() {
+    Route::get('/submit', 'KonfigurasiExampleController@index');
 });

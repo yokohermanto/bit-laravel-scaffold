@@ -25,7 +25,7 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]->nama = "Master Data";
         $menu["master_data"]->p_id = null;
         $menu["master_data"]->hak_akses_id = null;
-        $menu["master_data"]->ikon = null;
+        $menu["master_data"]->ikon = "icon-home";
         $menu["master_data"]->url = "#";
         $menu["master_data"]->tipe = "heading";
         $menu["master_data"]->urutan = 2;
@@ -61,6 +61,26 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["role"]->urutan = 3;
         $menu["master_data"]["role"]->save();
 
+        $menu["master_data"]["role"] = new \App\Menu();
+        $menu["master_data"]["role"]->nama = "Role";
+        $menu["master_data"]["role"]->p_id = $menu["master_data"]->id;;
+        $menu["master_data"]["role"]->hak_akses_id = \App\Permission::where("nama", "manajemen-role")->first()->id;
+        $menu["master_data"]["role"]->ikon = "icon-people";
+        $menu["master_data"]["role"]->url = "master-data/role";
+        $menu["master_data"]["role"]->tipe = "menu";
+        $menu["master_data"]["role"]->urutan = 4;
+        $menu["master_data"]["role"]->save();
+
+        $menu["master_data"]["test"] = new \App\Menu();
+        $menu["master_data"]["test"]->nama = "Test";
+        $menu["master_data"]["test"]->p_id = $menu["master_data"]->id;
+        $menu["master_data"]["test"]->hak_akses_id = null;
+        $menu["master_data"]["test"]->ikon = "icon-layers";
+        $menu["master_data"]["test"]->url = "master-data/test";
+        $menu["master_data"]["test"]->tipe = "menu";
+        $menu["master_data"]["test"]->urutan = 5;
+        $menu["master_data"]["test"]->save();
+
         $menu["master_data"]["konfigurasi"] = new \App\Menu();
         $menu["master_data"]["konfigurasi"]->nama = "Konfigurasi";
         $menu["master_data"]["konfigurasi"]->p_id = $menu["master_data"]->id;;
@@ -68,7 +88,7 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["konfigurasi"]->ikon = "icon-wrench";
         $menu["master_data"]["konfigurasi"]->url = "#";
         $menu["master_data"]["konfigurasi"]->tipe = "menu";
-        $menu["master_data"]["konfigurasi"]->urutan = 4;
+        $menu["master_data"]["konfigurasi"]->urutan = 6;
         $menu["master_data"]["konfigurasi"]->save();
 
         $menu["master_data"]["konfigurasi"]["aplikasi"] = new \App\Menu();
@@ -80,5 +100,35 @@ class MenuTableSeeder extends Seeder
         $menu["master_data"]["konfigurasi"]["aplikasi"]->tipe = "menu";
         $menu["master_data"]["konfigurasi"]["aplikasi"]->urutan = 1;
         $menu["master_data"]["konfigurasi"]["aplikasi"]->save();
+
+        $menu["master_data"]["konfigurasi"]["backup"] = new \App\Menu();
+        $menu["master_data"]["konfigurasi"]["backup"]->nama = "Backup";
+        $menu["master_data"]["konfigurasi"]["backup"]->p_id = $menu["master_data"]["konfigurasi"]->id;
+        $menu["master_data"]["konfigurasi"]["backup"]->hak_akses_id = null;
+        $menu["master_data"]["konfigurasi"]["backup"]->ikon = "icon-layers";
+        $menu["master_data"]["konfigurasi"]["backup"]->url = "/konfigurasi/backup";
+        $menu["master_data"]["konfigurasi"]["backup"]->tipe = "menu";
+        $menu["master_data"]["konfigurasi"]["backup"]->urutan = 2;
+        $menu["master_data"]["konfigurasi"]["backup"]->save();
+
+        $menu["master_data"]["konfigurasi"]["example"] = new \App\Menu();
+        $menu["master_data"]["konfigurasi"]["example"]->nama = "Example";
+        $menu["master_data"]["konfigurasi"]["example"]->p_id = $menu["master_data"]["konfigurasi"]->id;
+        $menu["master_data"]["konfigurasi"]["example"]->hak_akses_id = null;
+        $menu["master_data"]["konfigurasi"]["example"]->ikon = "icon-layers";
+        $menu["master_data"]["konfigurasi"]["example"]->url = "#";
+        $menu["master_data"]["konfigurasi"]["example"]->tipe = "menu";
+        $menu["master_data"]["konfigurasi"]["example"]->urutan = 1;
+        $menu["master_data"]["konfigurasi"]["example"]->save();
+
+        $menu["master_data"]["konfigurasi"]["example"]["submit"] = new \App\Menu();
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->nama = "Submit";
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->p_id = $menu["master_data"]["konfigurasi"]["example"]->id;
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->hak_akses_id = null;
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->ikon = "icon-layers";
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->url = "/konfigurasi/example/submit";
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->tipe = "menu";
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->urutan = 1;
+        $menu["master_data"]["konfigurasi"]["example"]["submit"]->save();
     }
 }

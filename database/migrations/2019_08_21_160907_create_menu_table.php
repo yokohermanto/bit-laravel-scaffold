@@ -18,10 +18,11 @@ class CreateMenuTable extends Migration
             $table->string("nama");
             $table->unsignedBigInteger("p_id")->nullable();
             $table->integer("hak_akses_id")->unsigned()->nullable();
-            $table->string("ikon")->nullable();
-            $table->string("url")->nullable();
-            $table->string("segment")->nullable();
+            $table->string("ikon")->default("icon-home");
+            $table->string("url")->default("/");
+            $table->string("segment")->default("1-1");
             $table->string("tipe")->nullable();
+            $table->string("target")->default("self");
             $table->string("urutan")->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -1,12 +1,12 @@
 {
-    "name": "KonfigurasiTest",
-    "alias": "konfigurasitest",
+    "name": "KonfigurasiExample",
+    "alias": "konfigurasiexample",
     "description": "",
     "keywords": [],
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\KonfigurasiTest\\Providers\\KonfigurasiTestServiceProvider"
+        "Modules\\KonfigurasiExample\\Providers\\KonfigurasiExampleServiceProvider"
     ],
     "aliases": {},
     "files": [],

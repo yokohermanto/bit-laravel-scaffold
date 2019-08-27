@@ -13,4 +13,6 @@
 
 Route::prefix('master-data/menu')->group(function() {
     Route::get('/', 'MasterDataMenuController@index');
+    Route::get('/get', 'MasterDataMenuController@get')->name("master_data.menu.get");
+    Route::get('/', 'MasterDataMenuController@index')->name("master_data.menu.store");
 });
