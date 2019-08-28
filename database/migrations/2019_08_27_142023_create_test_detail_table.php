@@ -15,6 +15,7 @@ class CreateTestDetailTable extends Migration
     {
         Schema::create('test_detail', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('test_id');
             $table->string('meta');
             $table->string('type'); //number, text, json, file
             $table->string('value');
